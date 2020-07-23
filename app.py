@@ -1,3 +1,6 @@
+import numpy as np
+import pandas as pd
+import datetime as dt
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -50,9 +53,7 @@ def years():
     '''Return a list of all year_of_birth Data'''
     # Query all nat_names Data,
 
-    results = (sessions.query(yob.name, yob.sex, yob.count, yob.year)
-                     .order_by(yob.year.desc())
-                     .all())
+    results = (session.query(yob.name, yob.sex, yob.count, yob.year).all())
     session.close()
 
     # Return the JSON representation of your dictionary
@@ -62,6 +63,6 @@ def years():
     years_data = list(np.ravel(results))
 
     return jsonify(years_data)
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
