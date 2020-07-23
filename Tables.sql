@@ -6,26 +6,27 @@ DROP TABLE IF EXISTS state_names;
 -- CREATE TABLES
 
 CREATE TABLE year_of_birth (
-	id SERIAL UNIQUE,
+	id BIGSERIAL PRIMARY KEY,
 	name VARCHAR(255) NOT NULL, 
 	sex VARCHAR(1) NOT NULL,
 	count INT NOT NULL,
-	source VARCHAR(255) NOT NULL,
-	year INT NOT NULL,
-	CONSTRAINT pk_year_of_birth PRIMARY KEY (id)
+	year INT NOT NULL
 );
 
+SELECT * FROM year_of_birth LIMIT 50;
+
 CREATE TABLE state_names (
-	id SERIAL UNIQUE,
+	id BIGSERIAL PRIMARY KEY,
 	state VARCHAR(2) NOT NULL,
 	sex VARCHAR(2) NOT NULL,
 	year INT NOT NULL,
 	name VARCHAR(255) NOT NULL,
-	count INT NOT NULL,
-	CONSTRAINT pk_state_names PRIMARY KEY (id)
+	count INT NOT NULL
 );
 
-SELECT * FROM state_names LIMIT 100;
+SELECT * FROM state_names LIMIT 50;
+
+
 SELECT state, MAX(count) FROM state_names GROUP BY state;
 
 CREATE VIEW top_names_state AS
