@@ -53,16 +53,22 @@ def years():
     '''Return a list of all year_of_birth Data'''
     # Query all nat_names Data,
 
-    results = (session.query(yob.name, yob.sex, yob.count, yob.year).all())
+    results = (session.query(yob.year, yob.name, yob.sex, yob.count)
+                      .order_by(yob.year)
+                      .all())
     session.close()
 
     # Return the JSON representation of your dictionary
-    #years_data = []
-    #for results in results:
-    #    year_dict = {results.}
-    years_data = list(np.ravel(results))
+    year_data = []
+    for results in results:
+        year_dict = {"year": results.year,
+                     "name": results.name,
+                     "sex": results.sex,
+                     "count": results.count}
+        year_data.append(year_dict)
+    #years_data = list(np.ravel(results))
 
-    return jsonify(years_data)
+    return jsonify(year_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
