@@ -15,9 +15,8 @@ Base = automap_base()
 Base.prepare(engine, reflect=True)
 Base.classes.keys()
 # Save references to each table
-yob, state_names = Base.classes.year_of_birth, Base.classes.state_names
-
-
+yob = Base.classes.year_of_birth
+state_name = Base.classes.state_names
 #################################################
 # Flask Setup Weather app
 #################################################
@@ -25,7 +24,6 @@ app = Flask(__name__)
 # Create our session (link) from Python to the DB
 session = Session(engine)
 # Design a query to retrieve data from nat_names Table in Names_DB
-
 
 session.close()
 #################################################
@@ -64,3 +62,6 @@ def years():
     years_data = list(np.ravel(results))
 
     return jsonify(years_data)
+    
+if __name__ == '__main__':
+    app.run(debug=True)
