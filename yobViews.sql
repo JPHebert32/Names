@@ -1,0 +1,32 @@
+-- DROP VIEWS 
+DROP VIEW yob1800 IF EXISTS
+
+
+
+
+
+CREATE VIEW yob1800 AS
+SELECT y.name,y.sex,y.count,y.year
+FROM year_of_birth y
+WHERE y.year < 1900;
+
+SELECT * FROM yob1800;
+
+DROP VIEW yob1900 IF EXISTS
+
+CREATE VIEW yob1900 AS
+SELECT y.name,y.sex,y.count,y.year
+FROM year_of_birth y
+WHERE y.year >=1900 AND y.year < 1950;
+SELECT * FROM yob1900;
+
+DROP VIEW yob1950 IF EXISTS
+
+CREATE VIEW yob1950 AS
+
+DROP VIEW yob2000 IF EXISTS
+
+CREATE VIEW yob2000 AS
+
+DROP VIEW yob2018 IF EXISTS
+CREATE VIEW yob2018 AS
