@@ -69,10 +69,6 @@ def state(state):
     state_table = pd.read_sql(query, engine, index_col=None)
     return(state_table.to_json(orient="records"))
 
-@app.route("/api/v1.0/names")
-def names():
-    return render_template('index.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
