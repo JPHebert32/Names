@@ -7,19 +7,12 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, MetaData, Table, Column, func
 from flask import Flask, jsonify
+from flask import render_template
 
 #################################################
 # Database Setup
 #################################################
 engine = create_engine('postgresql://postgres:JPH401@mc@localhost:5432/Names_DB')
-
-male_year_table = pd.read_sql("select year_of_birth.year, year_of_birth.name, year_of_birth.sex, year_of_birth.count From public.year_of_birth WHERE year_of_birth.sex = 'M'", engine, index_col=None)
-#print(male_year_table)
-female_year_table = pd.read_sql("select year_of_birth.year, year_of_birth.name, year_of_birth.sex, year_of_birth.count From public.year_of_birth WHERE year_of_birth.sex = 'F'", engine, index_col=None)
-#print(female_year_table)
-
-
-
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
@@ -41,15 +34,17 @@ session.close()
 # Flask Routes
 #################################################
 @app.route("/")
-def names():
-    """List all available api routes."""
-    return (f"Welcome to United States Name API<br/>"
-            f"-----------------------------------------------<br/>"
-            f"List of availible routes:<br/>"
-            f"/api/v1.0/years/<sex><br/>"
-            f"/api/v1.0/states/<state><br/>"
-            f"-----------------------------------------------<br/>"
-            )
+def home():
+    return render_template("index.html")
+    #     """List all available api routes."""
+    # return (f"Welcome to United States Name API<br/>"
+    #         f"-----------------------------------------------<br/>"
+    #         f"List of availible routes:<br/>"
+    #         f"/api/v1.0/years/<sex><br/>"
+    #         f"/api/v1.0/states/<state><br/>"
+    #         f"-----------------------------------------------<br/>"
+    #         f"/api/v1.0/names>"
+    #         )
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -73,6 +68,10 @@ def state(state):
     query = f"select state_names.year, state_names.name, state_names.sex, state_names.count From public.state_names WHERE state_names.state = '{state}';"
     state_table = pd.read_sql(query, engine, index_col=None)
     return(state_table.to_json(orient="records"))
+
+@app.route("/api/v1.0/names")
+def names():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
