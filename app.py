@@ -56,7 +56,7 @@ def years(sex):
     if sex != 'M' and sex != 'F':
         return "error"
     print(sex)
-    query = f"select year_of_birth.year, year_of_birth.name, year_of_birth.sex, year_of_birth.count From public.year_of_birth WHERE year_of_birth.sex = '{sex}';"
+    query = f"select year_of_birth.year, year_of_birth.name, year_of_birth.sex, year_of_birth.count From public.year_of_birth WHERE year_of_birth.sex = '{sex}' and year_of_birth.year > 1990 and year_of_birth.count >= 1000;"
     sex_year_table = pd.read_sql(query, engine, index_col=None)
     return(sex_year_table.to_json(orient="records"))
 
@@ -65,7 +65,7 @@ def state(state):
     #if sex != 'M' or sex!= 'F':
     #    return "error"
 
-    query = f"select state_names.year, state_names.name, state_names.sex, state_names.count From public.state_names WHERE state_names.state = '{state}';"
+    query = f"select state_names.year, state_names.name, state_names.sex, state_names.count From public.state_names WHERE state_names.state = '{state} and state_name.year > 1990';"
     state_table = pd.read_sql(query, engine, index_col=None)
     return(state_table.to_json(orient="records"))
 
