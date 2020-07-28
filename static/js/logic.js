@@ -13,8 +13,26 @@ function handleSubmit() {
   d3.select("#nameInput").node().value = "";
 }
 
+
+var sex = "male";
+// Toggle sex
+function toggleSex(newSex) {
+  
+  sex = newSex;
+  console.log(newSex);
+  //call popttable func
+}
+
+// Add event listener for male button
+var male = d3.select("#male-Tab").on("click", toggleSex('male'));
+// Add event listener for female button
+var female = d3.select("#female-Tab").on("click", toggleSex('female'));
+
+
 // Add event listener for submit button
 d3.select("#submit").on("click", handleSubmit);
+
+
 
 // Map Visual
 // Create a map object
@@ -56,12 +74,17 @@ d3.json(yrMaleURL).then(function(maleData) {
 
 
 function popTable(data) {
-  console.log(`DATA: ${data}`)
+  if (sex == "male") {
+    data = yearsMaleData;
+}   else {
+    data = yearsFemaleData;
+}
+  //console.log(`DATA: ${data}`)
   //Clear Existing Table
   tbody.html('');
   //Use d3 to update each cell's text with
   data.forEach((names) => {
-    console.log(names);
+    //console.log(names);
     // Append table header from data
     var row = tbody.append('tr');
     //Use `Object.entries` data value
@@ -81,7 +104,7 @@ function handleClick() {
   let filteredData = yearsMaleData.filter(row => row.name === nameValue);
   popTable(filteredData);
   d3.event.preventDefault();
-  console.log(filteredData);
+  //console.log(filteredData);
 }
 
 // Store value from form
