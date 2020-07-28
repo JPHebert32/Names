@@ -1,5 +1,4 @@
 // Search function -User Input
-
 // Submit Button handler
 function handleSubmit() {
   // Prevent the page from refreshing
@@ -12,22 +11,6 @@ function handleSubmit() {
   // clear the input value
   d3.select("#nameInput").node().value = "";
 }
-
-
-// var sex = "male";
-// // Toggle sex
-// function toggleSex(newSex) {
-  
-//   sex = newSex;
-//   console.log(newSex);
-//   //call popttable func
-// }
-
-// // Add event listener for male button
-// var male = d3.select("#male-Tab").on("click", toggleSex('male'));
-// // Add event listener for female button
-// var female = d3.select("#female-Tab").on("click", toggleSex('female'));
-
 
 // Add event listener for submit button
 d3.select("#submit").on("click", handleSubmit);
@@ -78,4 +61,9 @@ function handleClick() {
 // Store value from form
 var submit = d3.select("#submit").on("click", handleClick);
 
-
+// 2018 Data   year2018Data
+var yr2018URL = "http://127.0.0.1:5000/api/v1.0/year/2018";
+var year2018Data = []
+d3.json(yr2018URL).then(function(yearData) {
+  year2018Data = yearData;
+})
