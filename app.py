@@ -56,18 +56,16 @@ def years(sex):
     if sex != 'M' and sex != 'F':
         return "error"
     print(sex)
-    query = f"select year_of_birth.year, year_of_birth.name, year_of_birth.sex, year_of_birth.count From public.year_of_birth WHERE year_of_birth.sex = '{sex}' and year_of_birth.year >= 2000 and year_of_birth.count >= 10000 ORDER BY year_of_birth.year DESC, year_of_birth.count DESC;"
+    query = f"select year_of_birth.year, year_of_birth.name, year_of_birth.sex, year_of_birth.count From public.year_of_birth WHERE year_of_birth.sex = '{sex}' and year_of_birth.year >= 2010 and year_of_birth.count >= 5000 ORDER BY year_of_birth.year DESC, year_of_birth.count DESC;"
     sex_year_table = pd.read_sql(query, engine, index_col=None)
     return(sex_year_table.to_json(orient="records"))
 
-@app.route("/api/v1.0/states/<state>")
-def state(state):
-    #if sex != 'M' or sex!= 'F':
-    #    return "error"
-
-    query = f"select state_names.year, state_names.name, state_names.sex, state_names.count From public.state_names WHERE state_names.state = '{state} and state_name.year > 1990';"
-    state_table = pd.read_sql(query, engine, index_col=None)
-    return(state_table.to_json(orient="records"))
+@app.route("/api/v1.0/year/2018")
+def yob2018():
+   
+    query = f"select year_of_birth.year, year_of_birth.name, year_of_birth.sex, year_of_birth.count From public.year_of_birth WHERE year_of_birth.sex = 'M' and year_of_birth.year >= 2018 and year_of_birth.count >= 5000 ORDER BY year_of_birth.year DESC, year_of_birth.count DESC;"
+    yob2018_table = pd.read_sql(query, engine, index_col=None)
+    return(yob2018_table.to_json(orient="records"))
 
 
 if __name__ == '__main__':

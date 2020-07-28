@@ -14,53 +14,34 @@ function handleSubmit() {
 }
 
 
-var sex = "male";
-// Toggle sex
-function toggleSex(newSex) {
+// var sex = "male";
+// // Toggle sex
+// function toggleSex(newSex) {
   
-  sex = newSex;
-  console.log(newSex);
-  //call popttable func
-}
+//   sex = newSex;
+//   console.log(newSex);
+//   //call popttable func
+// }
 
-// Add event listener for male button
-var male = d3.select("#male-Tab").on("click", toggleSex('male'));
-// Add event listener for female button
-var female = d3.select("#female-Tab").on("click", toggleSex('female'));
+// // Add event listener for male button
+// var male = d3.select("#male-Tab").on("click", toggleSex('male'));
+// // Add event listener for female button
+// var female = d3.select("#female-Tab").on("click", toggleSex('female'));
 
 
 // Add event listener for submit button
 d3.select("#submit").on("click", handleSubmit);
 
 
-
-// Map Visual
-// Create a map object
-var myMap = L.map("map", {
-  center: [40.09, -95.71],
-  zoom: 4
-});
-
-// Add a tile layer
-L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
-  attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
-  tileSize: 512,
-  maxZoom: 18,
-  zoomOffset: -1,
-  id: "mapbox/light-v10",
-  accessToken: API_KEY
-}).addTo(myMap);
-
-
 // Table Visual
 var tbody = d3.select('tbody');
 
-//Assign the data to a descriptive variable
-var yrFemaleURL = "http://127.0.0.1:5000/api/v1.0/years/F";
-  var yearsFemaleData = []
-  d3.json(yrFemaleURL).then(function(femaleData) {
-    yearsFemaleData = femaleData;
-  });
+// //Assign the data to a descriptive variable
+// var yrFemaleURL = "http://127.0.0.1:5000/api/v1.0/years/F";
+//   var yearsFemaleData = []
+//   d3.json(yrFemaleURL).then(function(femaleData) {
+//     yearsFemaleData = femaleData;
+//   });
 
 // Assign the data to a descriptive variable
 var yrMaleURL = "http://127.0.0.1:5000/api/v1.0/years/M";
@@ -71,14 +52,14 @@ d3.json(yrMaleURL).then(function(maleData) {
     // Populate the Table
     popTable(yearsMaleData);
 });
-
+yearsMaleData[0]
 
 function popTable(data) {
-  if (sex == "male") {
-    data = yearsMaleData;
-}   else {
-    data = yearsFemaleData;
-}
+//   if (sex == "male") {
+//     data = yearsMaleData;
+// }   else {
+//     data = yearsFemaleData;
+// }
   //console.log(`DATA: ${data}`)
   //Clear Existing Table
   tbody.html('');
