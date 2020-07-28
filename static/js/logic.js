@@ -36,13 +36,6 @@ d3.select("#submit").on("click", handleSubmit);
 // Table Visual
 var tbody = d3.select('tbody');
 
-// //Assign the data to a descriptive variable
-// var yrFemaleURL = "http://127.0.0.1:5000/api/v1.0/years/F";
-//   var yearsFemaleData = []
-//   d3.json(yrFemaleURL).then(function(femaleData) {
-//     yearsFemaleData = femaleData;
-//   });
-
 // Assign the data to a descriptive variable
 var yrMaleURL = "http://127.0.0.1:5000/api/v1.0/years/M";
 var yearsMaleData = []
@@ -55,12 +48,6 @@ d3.json(yrMaleURL).then(function(maleData) {
 yearsMaleData[0]
 
 function popTable(data) {
-//   if (sex == "male") {
-//     data = yearsMaleData;
-// }   else {
-//     data = yearsFemaleData;
-// }
-  //console.log(`DATA: ${data}`)
   //Clear Existing Table
   tbody.html('');
   //Use d3 to update each cell's text with
@@ -90,3 +77,5 @@ function handleClick() {
 
 // Store value from form
 var submit = d3.select("#submit").on("click", handleClick);
+
+
