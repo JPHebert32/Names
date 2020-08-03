@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ZingSoft Demo</title>
+  <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <style></style>
+</head>
+
+<body>
+  <div id="myChart"></div>
+  <script>
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+    zingchart.MODULESDIR = 'https://cdn.zingchart.com/modules/';
+
+    var myConfig = {
+      type: 'wordcloud',
+      options: {
+        words: [
+        {
+          count: 19837, 
+          text: "Liam"
+        }, 
+        {
+          count: 18267, 
+          text: "Noah"
+        }, 
+        {
+          count: 14516, 
+          text: "William"
+        }, 
+        {
+          count: 13525, 
+          text: "James"
+        }, 
+        {
+          count: 13389, 
+          text: "Oliver"
+        }, 
+        {
+          count: 13381, 
+          text: "Benjamin"
+        }, 
+        {
+          count: 12886, 
+          text: "Elijah"
+        }, 
+        {
+          count: 12585, 
+          text: "Lucas"
+        }, 
+        {
+          count: 12435, 
+          text: "Mason"
+        }, 
+        {
+          count: 12352, 
+          text: "Logan"
+        }, 
+        {
+          count: 11989, 
+          text: "Alexander"
+        }, 
+        {
+          count: 11854, 
+          text: "Ethan"
+        }, 
+        {
+          count: 11770, 
+          text: "Jacob"
+        }, 
+        {
+          count: 11620, 
+          text: "Michael"
+        }, 
+        {
+          count: 11173, 
+          text: "Daniel"
+        }, 
+        {
+          count: 10649, 
+          text: "Henry"
+        }, 
+        {
+          count: 10323, 
+          text: "Jackson"
+        }, 
+        {
+          count: 10054, 
+          text: "Sebastian"
+        }, 
+        {
+          count: 9979, 
+          text: "Aiden"
+        }, 
+        {
+          count: 9924, 
+          text: "Matthew"
+        }, 
+        {
+          count: 9734, 
+          text: "Samuel"
+        }, 
+        {
+          count: 9697, 
+          text: "David"
+        }, 
+        {
+          count: 9555, 
+          text: "Joseph"
+        }, 
+        {
+          count: 9312, 
+          text: "Carter"
+        }, 
+        {
+          count: 9288, 
+          text: "Owen"
+        }, 
+        {
+          count: 9127, 
+          text: "Wyatt"
+        }, 
+        {
+          count: 9119, 
+          text: "John"
+        }, 
+        {
+          count: 8834, 
+          text: "Jack"
+        }, 
+        {
+          count: 8577, 
+          text: "Luke"
+        }, 
+        {
+          count: 8553, 
+          text: "Jayden"
+        }, 
+        {
+          count: 8549, 
+          text: "Dylan"
+        }, 
+        {
+          count: 8538, 
+          text: "Grayson"
+        }, 
+        {
+          count: 8440, 
+          text: "Levi"
+        }, 
+        {
+          count: 8417, 
+          text: "Isaac"
+        }, 
+        {
+          count: 8335, 
+          text: "Gabriel"
+        }, 
+        {
+          count: 8307, 
+          text: "Julian"
+        }, 
+        {
+          count: 8169, 
+          text: "Mateo"
+        }, 
+        {
+          count: 8003, 
+          text: "Anthony"
+        }, 
+        {
+          count: 7701, 
+          text: "Jaxon"
+        }, 
+        {
+          count: 7368, 
+          text: "Lincoln"
+        }, 
+        {
+          count: 7364, 
+          text: "Joshua"
+        }, 
+        {
+          count: 7261, 
+          text: "Christopher"
+        }, 
+        {
+          count: 7234, 
+          text: "Andrew"
+        }, 
+        {
+          count: 7020, 
+          text: "Theodore"
+        }, 
+        {
+          count: 6929, 
+          text: "Caleb"
+        }, 
+        {
+          count: 6905, 
+          text: "Ryan"
+        }, 
+        {
+          count: 6802, 
+          text: "Asher"
+        }, 
+        {
+          count: 6790, 
+          text: "Nathan"
+        }, 
+        {
+          count: 6779, 
+          text: "Thomas"
+        }
+      ],
+        maxItems: 50,
+        aspect: 'flow-center',
+
+        colorType: 'palette',
+        palette: ['#D32F2F', '#70301c', '#1976D2', '#ede247', '#8f46e3', '#5cced6', '#9c3b8d', '#94f07a', '#3e5e78', '#d1882e', '#8D6E63', '#42A5F5', '#998cde', '#2da635', '#212b91' ],
+
+        style: {
+          fontFamily: 'Crete Round',
+
+          hoverState: {
+            backgroundColor: '#D32F2F',
+            borderRadius: 2,
+            fontColor: 'white'
+          },
+          tooltip: {
+            text: '%text: %hits',
+            visible: true,
+            alpha: 0.9,
+            backgroundColor: '#1976D2',
+            borderRadius: 2,
+            borderColor: 'none',
+            fontColor: 'white',
+            fontFamily: 'Georgia',
+            textAlpha: 1
+          }
+        }
+      },
+
+      source: {
+        text: '--Most Popular Male Names<br> USA in 2018 <br>',
+        fontColor: '#64B5F6',
+        fontSize: 10,
+        fontFamily: 'Georgia',
+        fontWeight: 'normal',
+        marginBottom: '10%'
+      }
+    };
+
+    zingchart.render({
+      id: 'myChart',
+      data: myConfig,
+      height: 500,
+      width: '100%'
+    });
+  </script>
+</body>
+
+</html>
