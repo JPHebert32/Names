@@ -2,4 +2,5 @@ Resources/
 .ipynb_checkpoints/
 /static/js/config.js
 __pycache__
+.vscode/
 
