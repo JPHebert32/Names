@@ -63,7 +63,7 @@ def years(sex):
 @app.route("/api/v1.0/year/2018")
 def yob2018():
    
-    query = f"select year_of_birth.count, year_of_birth.name From public.year_of_birth WHERE year_of_birth.sex = 'M' and year_of_birth.year >= 2018 ORDER BY year_of_birth.count DESC LIMIT 100;"
+    query = f"select year_of_birth.name, year_of_birth.count From public.year_of_birth WHERE year_of_birth.sex = 'M' and year_of_birth.year >= 2018 ORDER BY year_of_birth.count DESC LIMIT 100;"
     yob2018_table = pd.read_sql(query, engine, index_col=None)
     return(yob2018_table.to_json(orient="records"))
 
