@@ -102,7 +102,7 @@ function plotLine(data) {
   var data = [trace1];
 
   var layout = {
-    xaxis: { range: [2000, 2018] },
+    xaxis: { range: [2000, 2020] },
     yaxis: {
       autorange: true,
       type: "linear"

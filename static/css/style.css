@@ -4,9 +4,5 @@ table {
   overflow-y: scroll;
 }
 
-line-plot {
-  display: block;
-  height: 6500px;
-}
 
 
