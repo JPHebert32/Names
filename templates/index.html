@@ -8,19 +8,18 @@
   <!-- Bootstrap, Leaflet, CSS & JS-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-  crossorigin=""/>
-
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-  crossorigin=""></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
 
   <!-- d3 JavaScript -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!--Ploty-->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
+  
+  <!--ZingChart-->
+  <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <style></style>
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
@@ -51,13 +50,10 @@
       </nav>
 
   <div class="row">
-      <div class="col-sm-5">
+      <div class="col-md-9">
         <div id="line-plot"></div>
       </div>
-      <div class="col-sm-5">
-        <div id="bar-plot" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" style="height: 650px;"></div>
-      </div>
-      <div class="col-sm-2" style="margin-right: 0px; right: 15px;">
+      <div class="col-sm-3" style="margin-right: 0px; right: 15px;">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -72,6 +68,13 @@
         </table>
       </div>
   </div>
+  <div class="row">
+    <!--<div class="col-sm-6">
+      <div id="cloud-plot"></div>
+    </div>-->
+    <div class="col-sm-12">
+      <div id="myChart"></div>
+    </div>
 
   <!--Footer-->
   <footer>
@@ -89,6 +92,6 @@
  <!-- API key -->
  <script type="text/javascript" src="static/js/config.js"></script>
  <!-- Our JS -->
- <script type="text/javascript" src="static/js/ericplot.js"></script>
+ <script type="text/javascript" src="static/js/logic.js"></script>
 </body>
 </html>

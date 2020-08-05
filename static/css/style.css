@@ -3,3 +3,14 @@ table {
   height: 650px;
   overflow-y: scroll;
 }
+
+bar-plot {
+  display: block;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+line-plot {
+  display: block;
+  height: 6500px;
+}
